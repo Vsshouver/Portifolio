@@ -93,6 +93,58 @@
         </div>
     </section>
 
+    <section class="section">
+        <h2>Dashboard de Operação de Mina</h2>
+        <p>Este dashboard foi desenvolvido para monitorar em tempo real os principais KPIs da operação de mina, incluindo a produtividade dos equipamentos, os custos operacionais e a eficiência do processo de lavra.</p>
+        
+        <div class="dashboard-container">
+            <div class="dashboard-item">
+                <h3>Aderência à metas de Produção e KPI`s</h3>
+                <img src="img/dashboard_produtividade.jpg" alt="Dashboard Produtividade Equipamentos" />
+            </div>
+            <div class="dashboard-item">
+                <h3>Custos Operacionais</h3>
+                <img src="img/dashboard_custos_operacionais.jpg" alt="Dashboard Custos Operacionais" />
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <h2>Sistema de Controle de Manutenção</h2>
+        <p>O sistema de controle de manutenção que desenvolvi permite o acompanhamento detalhado de todas as intervenções realizadas nos equipamentos, com destaque para o tempo de reparo, tipo de falha e status de disponibilidade.</p>
+        
+        <div class="maintenance-system">
+            <h3>Principais Funcionalidades</h3>
+            <ul>
+                <li>Registro automático de falhas e manutenções</li>
+                <li>Acompanhamento de tempo de reparo (MTTR) e frequência de falhas (MTBF)</li>
+                <li>Relatórios de disponibilidade e performance</li>
+            </ul>
+            <img src="img/sistema_manutencao.jpg" alt="Sistema Controle de Manutenção" />
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Gráfico Interativo de Produtividade</h2>
+        <canvas id="produtividadeChart"></canvas>
+        <script>
+            var ctx = document.getElementById('produtividadeChart').getContext('2d');
+            var produtividadeChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Equipamento A', 'Equipamento B', 'Equipamento C'],
+                    datasets: [{
+                        label: 'Produtividade (toneladas)',
+                        data: [120, 150, 180],
+                        backgroundColor: 'rgba(0, 198, 255, 0.6)',
+                        borderColor: 'rgba(0, 198, 255, 1)',
+                        borderWidth: 1
+                    }]
+                }
+            });
+        </script>
+    </section>
+
     <section id="contact" class="contact-section">
         <h2>Contato</h2>
         <p>Email: vinicius0216123061@gmail.com</p>
