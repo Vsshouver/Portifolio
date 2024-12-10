@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <!-- Navegação -->
@@ -51,12 +52,12 @@
 
     <!-- Seções -->
     <section id="about" class="section">
-        <h2>Um pouco da minha trajetoria</h2>
+        <h2>Um pouco da minha trajetória</h2>
         <p>
             🎓 Graduando em Engenharia de Software, com sólida formação técnica e experiência prática em tecnologia, mineração, hardware e robótica. 
             <br>Iniciei minha carreira na área de TI e migrei para a mineração, onde atuei na gestão de frota e análise operacional de lavra.  
             <br>Atualmente, trabalho como Analista de Gestão Administrativa, focando em planejamento estratégico, controle de despesas e otimização de processos internos. 
-            <!--<br>Com uma mentalidade analítica e orientada para soluções, busco constantemente expandir meu conhecimento e enfrentar novos desafios no campo da Engenharia de Software. --></p>
+        </p>
     </section>
 
     <section id="projects" class="section">
@@ -77,6 +78,19 @@
             <h3>KPIs de Negócios: </h3>
             <p>Vasta experiência em definição, monitoramento e análise de KPIs estratégicos para suporte à tomada de decisão.</p>
         </div>
+
+        <!-- Gráficos de Dashboard -->
+        <div class="project">
+            <h3>Dashboard de Desempenho</h3>
+            <div class="chart-container">
+                <h4>Produção Mensal de Minério</h4>
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h4>Desempenho da Frota</h4>
+                <canvas id="lineChart"></canvas>
+            </div>
+        </div>
     </section>
 
     <section id="contact" class="contact-section">
@@ -92,5 +106,54 @@
     <!-- Script JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="scripts.js"></script>
+
+    <!-- Chart.js Script -->
+    <script>
+        // Gráfico de Barras - Produção Mensal de Minério
+        const barCtx = document.getElementById('barChart').getContext('2d');
+        const barChart = new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                datasets: [{
+                    label: 'Produção de Minério',
+                    data: [1200, 1300, 1400, 1100, 1250, 1350, 1500, 1450, 1600, 1700, 1550, 1650],
+                    backgroundColor: 'rgba(34, 153, 84, 0.6)', // Cor Verde
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Gráfico de Linhas - Desempenho da Frota
+        const lineCtx = document.getElementById('lineChart').getContext('2d');
+        const lineChart = new Chart(lineCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                datasets: [{
+                    label: 'Desempenho da Frota',
+                    data: [92, 94, 96, 93, 95, 97, 98, 99, 97, 95, 96, 97],
+                    borderColor: 'rgba(255, 165, 0, 1)', // Cor Dourada
+                    backgroundColor: 'rgba(255, 165, 0, 0.3)',
+                    fill: true,
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
